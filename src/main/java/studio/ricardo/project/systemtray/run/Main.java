@@ -22,7 +22,10 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class Main {
 
-	private static final String WINDOWS_LOOK_AND_FEEL = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+	// private static final String WINDOWS_LOOK_AND_FEEL =
+	// "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+	// private static final String MAC_LOOK_AND_FEEL =
+	// "com.sun.java.swing.plaf.mac.MacLookAndFeel";
 	private static final String APP_NAME = "SystemTrayDemo";
 	private static final String IMAGE_DESTINATION = "/images/camera.png";
 	// private static final String METAL_LOOK_AND_FEEL =
@@ -170,8 +173,13 @@ public class Main {
 	public static void main(String[] args) {
 		/* Use an appropriate Look and Feel */
 		try {
-			UIManager.setLookAndFeel(WINDOWS_LOOK_AND_FEEL);
+			// UIManager.setLookAndFeel(WINDOWS_LOOK_AND_FEEL);
+			// UIManager.setLookAndFeel(MAC_LOOK_AND_FEEL);
 			// UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+			String actualLookAndFeel = UIManager
+					.getCrossPlatformLookAndFeelClassName();
+			System.out.println("Loading Look And Feel: " + actualLookAndFeel);
+			UIManager.setLookAndFeel(actualLookAndFeel);
 		} catch (UnsupportedLookAndFeelException ex) {
 			ex.printStackTrace();
 		} catch (IllegalAccessException ex) {
